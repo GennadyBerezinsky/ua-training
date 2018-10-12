@@ -19,8 +19,18 @@ public class Model {
         lists = new ArrayList<String>();
     }
 
-    private int generate(){
-        return (int)(Math.random()*diapasoneMax);
+    public int getTrys() {
+        return trys;
+    }
+
+    /**
+     * Method tested, test ignored as resource-intensive
+     * After changing in this method de-ignore test method testBounds()
+     *
+     * @return random num
+     */
+    public int generate(){
+        return (int)Math.ceil(Math.random()*(diapasoneMax-diapasoneMin-1)+diapasoneMin);
     }
 
     public int getGenerated(){
@@ -53,7 +63,7 @@ public class Model {
     }
 
     public boolean checkDiapasone(int input){
-        return input >= diapasoneMin && input <= diapasoneMax;
+        return input > diapasoneMin && input < diapasoneMax;
     }
 
     public void newDia(int inp){
