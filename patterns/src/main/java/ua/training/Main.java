@@ -1,8 +1,10 @@
 package ua.training;
 
-import ua.training.abstract_factory.Client;
-import ua.training.abstract_factory.product.DraculaTheme;
-import ua.training.abstract_factory.product.IntelijiTheme;
+import com.sun.xml.internal.bind.v2.runtime.output.XMLStreamWriterOutput;
+import ua.training.abstractFactory.Client;
+import ua.training.abstractFactory.product.DraculaTheme;
+import ua.training.abstractFactory.product.IntelijiTheme;
+import ua.training.builder.Entity;
 
 /**
  * Created by User on 21.10.2018.
@@ -17,6 +19,7 @@ public class Main {
          * and print them.
          */
         {
+            System.out.println("Abstract factory");
             Client client = new Client();
 
             client.getForm(new DraculaTheme());
@@ -24,6 +27,20 @@ public class Main {
 
             client.getForm(new IntelijiTheme());
             System.out.println(client.printForm());
+
+            System.out.println("______________________");
+        }
+
+        /**
+         * Builder
+         *
+         */
+        {
+            System.out.println("Builder");
+            Entity entity = new Entity.Builder().setName("Name").setSecondname("second name")
+                    .setSurname("surname").setNickname("nickname").build();
+            System.out.println(entity.toString());
+            System.out.println("_______________________");
         }
 
 
