@@ -4,6 +4,11 @@ import com.sun.xml.internal.bind.v2.runtime.output.XMLStreamWriterOutput;
 import ua.training.abstractFactory.Client;
 import ua.training.abstractFactory.product.DraculaTheme;
 import ua.training.abstractFactory.product.IntelijiTheme;
+import ua.training.bridge.Window;
+import ua.training.bridge.abstracts.MSWinAbs;
+import ua.training.bridge.abstracts.MacOSAbs;
+import ua.training.bridge.realisation.MSWin;
+import ua.training.bridge.realisation.MacOs;
 import ua.training.builder.Entity;
 
 /**
@@ -43,6 +48,17 @@ public class Main {
             System.out.println("_______________________");
         }
 
+        /**
+         * Bridge
+         */
+        {
+            Window window;
+            window = new MacOSAbs(new MacOs());
+            window.theme();
+
+            window = new MSWinAbs(new MSWin());
+            window.theme();
+        }
 
     }
 }
